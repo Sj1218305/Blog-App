@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+
+<div class="ui main container segment">
+	<div class="ui huge header"><%= blogs.title %></div>
+	
+</div>
+
+<div class="ui items">
+  <div class="item">
+    <div class="image">
+       <img src="<%= blogs.image %>">
+    </div>
+    <div class="content">
+      <span><%= blogs.created %></span>
+      <div class="meta">
+        <span>Description</span>
+      </div>
+      <div class="description">
+        <p>
+	<%-	blogs.body %>  
+	</p>
+      </div>
+      <a id="delete" href="/blogs/<%= blogs._id %>/edit"  class="ui orange basic button">Edit</a> 
+		 <form action= '/blogs/<%= blogs._id %>?_method=DELETE' method="POST">  <%# Remember we can't do /blogs/:id/edit %>
+		 <button class = "ui red basic button">
+			Delete
+		 </button>
+		</form>
+	  </div>
+  </div>
+
+<% include partials/footer %>
